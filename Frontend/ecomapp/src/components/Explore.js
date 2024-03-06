@@ -124,9 +124,9 @@ export default function Explore()
       
       <p class="card-text">{products[0].description}</p>
       
-      <a href="#" onClick={()=>navigate('/checkout')} class="btn btn-primary me-2">Add To Bag</a>
-      <Link to={`/ordersummary/${products[0].id}`}>Buy {products[0].name}</Link>
-      <a href="#" onClick={()=>navigate('/checkout')} class="btn btn-primary">Checkout Now</a>
+      {/* <a href="#" onClick={()=>navigate('/checkout')} class="btn btn-primary me-2">Add To Bag</a> */}
+      <Link to={`/Review/${products[0].id}`}>Buy {products[0].name}</Link>
+      {/* <a href="#" onClick={()=>navigate('/checkout')} class="btn btn-primary">Checkout Now</a> */}
   </div>
 </div>
     </div>
@@ -137,9 +137,9 @@ export default function Explore()
     <h5 class="card-title">{products[1].name}  <span >{products[1].price}</span></h5>
     <price></price>
     <p class="card-text"> {products[1].description} </p>
-    <a href="#" class="btn btn-primary me-2">Add To Bag</a>
-    <Link to={`/ordersummary/${products[1].id}`}>Buy {products[1].name}</Link>
-      <a href="#" onClick={()=>navigate('/checkout')} class="btn btn-primary">Checkout Now</a>
+    {/* <a href="#" class="btn btn-primary me-2">Add To Bag</a> */}
+    <Link to={`/Review/${products[1].id}`}>Buy {products[1].name}</Link>
+      {/* <a href="#" onClick={()=>navigate('/checkout')} class="btn btn-primary">Checkout Now</a> */}
   </div>
 </div>
     </div>
@@ -149,9 +149,9 @@ export default function Explore()
   <div key={products[2].id} class="card-body">
     <h5 class="card-title" id="shoeone">{products[2].name} <span >{products[2].price}</span></h5>
     <p class="card-text"> {products[2].description }</p>
-    <a href="#" class="btn btn-primary me-2">Add To Bag</a>
-    {/* <Link to={`/Review/${products[2].id}`}>Buy {products[2].name}</Link> */}
-      <a href="#" onClick={()=>navigate('/Review/${products[2].id')} class="btn btn-primary">Checkout Now</a>
+    {/* <a href="#" class="btn btn-primary me-2">Add To Bag</a> */}
+    <Link to={`/Review/${products[2].id}`}>Buy {products[2].name}</Link>
+      {/* <a href="#" onClick={()=>navigate('/checkout')} class="btn btn-primary">Checkout Now</a> */}
   </div>
 </div>
     </div>
