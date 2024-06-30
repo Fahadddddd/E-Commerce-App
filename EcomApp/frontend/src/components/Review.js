@@ -8,12 +8,149 @@ const Review = () => {
   const { productId } = useParams();
 
   const products = [
-    { id: 1, name: 'PUMA', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', price: 99.00 },
-    { id: 2, name: 'RED TAPE', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', price: 49.00 },
-    { id: 3, name: 'NIKE', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', price: 69.00 },
+    {
+      id: 1,
+      name: 'Embroidered Seersucker Shirt',
+      price: 99,
+      image: `${process.env.PUBLIC_URL}/images/product1.jpg`,
+      description: 'V-Look T Shirt',
+    },
+    {
+      id: 2,
+      name: 'Basic Slim Fit T-Shirt',
+      price: 99,
+      image: `${process.env.PUBLIC_URL}/images/product2.jpg`,
+      description: 'Cotton T Shirt',
+    },
+    {
+      id: 3,
+      name: 'Blurred Print T-Shirt',
+      price: 99,
+      image: `${process.env.PUBLIC_URL}/images/product3.jpg`,
+      description: 'Henley T Shirt',
+    },
+    {
+      id: 4,
+      name: 'Full Sleeve Zipper',
+      price: 99,
+      image: `${process.env.PUBLIC_URL}/images/product4.jpg`,
+      description: 'Crewnock T Shirt',
+    },
+
+    {
+      id: 5,
+      name: 'Embroidered Seersucker Shirt',
+      price: 99,
+      image: `${process.env.PUBLIC_URL}/images/product5.jpg`,
+      description: 'V-Look T Shirt',
+    },
+    {
+      id: 6,
+      name: 'Basic Slim Fit T-Shirt',
+      price: 99,
+      image: `${process.env.PUBLIC_URL}/images/product6.jpg`,
+      description: 'Cotton T Shirt',
+    },
+    {
+      id: 7,
+      name: 'Blurred Print T-Shirt',
+      price: 99,
+      image: `${process.env.PUBLIC_URL}/images/product7.jpg`,
+      description: 'Henley T Shirt',
+    },
+    {
+      id: 8,
+      name: 'Full Sleeve Zipper',
+      price: 99,
+      image: `${process.env.PUBLIC_URL}/images/product8.jpg`,
+      description: 'Crewnock T Shirt',
+    },
+
+    {
+      id: 9,
+      name: 'Blurred Print T-Shirt',
+      price: 99,
+      image: `${process.env.PUBLIC_URL}/images/product7.jpg`,
+      description: 'Henley T Shirt',
+    },
+    {
+      id: 10,
+      name: 'Full Sleeve Zipper',
+      price: 99,
+      image: `${process.env.PUBLIC_URL}/images/product8.jpg`,
+      description: 'Crewnock T Shirt',
+    },
+
+
   ];
 
   const selectedProduct = products.find(product => product.id === parseInt(productId, 10));
+
+  const amount = 500;
+  const currency = "INR";
+  const receiptId = "qwsaq1";
+
+  const paymentHandler = async (e) => {
+    const response = await fetch("http://localhost:5000/order" , {
+      method: "POST",
+      body: JSON.stringify({
+        amount,
+        currency,
+        receipt: receiptId,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const order = await response.json();
+    console.log(order);
+
+
+    var options = {
+      "key": "rzp_test_1wzX0gWhtHOMrI", // Enter the Key ID generated from the Dashboard
+      amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      currency,
+      "name": "Acme Corp", //your business name
+      "description": "Test Transaction",
+      "image": "https://example.com/your_logo",
+      "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      "handler": function (response){
+          alert(response.razorpay_payment_id);
+          alert(response.razorpay_order_id);
+          alert(response.razorpay_signature)
+      },
+      "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
+          "name": "Gaurav Kumar", //your customer's name
+          "email": "gaurav.kumar@example.com", 
+          "contact": "9000090000"  //Provide the customer's phone number for better conversion rates 
+      },
+      "notes": {
+          "address": "Razorpay Corporate Office"
+      },
+      "theme": {
+          "color": "#3399cc"
+      }
+  };
+  var rzp1 = new window.Razorpay(options);
+  rzp1.on('payment.failed', function (response){
+          alert(response.error.code);
+          alert(response.error.description);
+          alert(response.error.source);
+          alert(response.error.step);
+          alert(response.error.reason);
+          alert(response.error.metadata.order_id);
+          alert(response.error.metadata.payment_id);
+  });
+
+  rzp1.open();
+    e.preventDefault();
+
+
+
+  }
+
+  
+
 
 
 
@@ -215,7 +352,7 @@ const Review = () => {
 
           <hr class="my-4"/>
 
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+          <button onClick={paymentHandler} class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
         </form>
       </div>
     </div>

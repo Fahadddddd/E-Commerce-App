@@ -1,5 +1,272 @@
 
 
+.header {
+  background-color: #e9e9e9;
+  padding: 20px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  font-size: x-large;
+  font-family: fantasy;
+}
+
+.category-link{
+  display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 10px;
+    font-size: x-large;
+    font-family: ui-sans-serif;
+    padding-left: 50px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+}
+
+.category-link a {
+  text-decoration: none;
+  color: #000;
+}
+.search-bar input {
+  padding: 5px;
+  font-family: monospace;
+}
+
+.icons a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #000;
+}
+
+
+.home {
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 100px;
+}
+
+.intro {
+  margin-bottom: 20px;
+}
+
+.intro h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  font-family: fantasy;
+}
+
+.intro p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-family: monospace;
+}
+
+.intro button {
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.products {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  
+}
+
+.product img {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+}
+
+
+
+.btnnn
+{
+  padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.btnnn a
+{
+  text-decoration: none;
+  color: white;
+}
+
+
+
+
+
+
+.App {
+  padding: 20px;
+}
+
+.product-grid {
+  padding: 20px;
+}
+
+.headerr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.headerr h2 {
+  font-weight: bold;
+    font-family: ui-serif;
+    font-size: xxx-large;
+}
+
+.headerr span {
+  color: blue;
+}
+
+.headerr .see-all {
+  text-decoration: none;
+  color: black;
+}
+
+.products {
+  
+  gap: 20px;
+}
+
+/* .product-card {
+  background-color: #f9f9f9;
+  border: 5px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+} */
+
+.product-card {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px; /* Set a fixed height for the images */
+  object-fit: cover; /* Ensure the image covers the entire area without stretching */
+}
+
+.slick-next:before
+{
+  color:#000;
+
+}
+
+.slick-slide {
+  padding: 0 10px; /* Adjust padding as needed */
+}
+
+/* .product-card img {
+  width: 100%;
+  height: auto;
+} */
+
+.product-info {
+  padding: 10px;
+}
+
+.product-info .description {
+  color: #666;
+  font-size: 14px;
+}
+
+.product-info h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.product-info .price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background: none;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+
+#btnn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #7e97b8;
+  background-color: #e0e8ef;
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+  border-color: rgba(255, 255, 255, 0.333);
+  border-radius: 40px 40px 40px 40px;
+  padding: 16px 24px 16px 28px;
+  transform: translate(0px, 0px) rotate(0deg);
+  transition: 0.2s;
+  box-shadow: -4px -2px 16px 0px #ffffff, 4px 2px 16px 0px rgb(95 157 231 / 48%);
+ }
+ 
+ #btnn:hover {
+  color: #516d91;
+  background-color: #E5EDF5;
+  box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+ }
+ 
+ #btnn:active {
+  box-shadow: none;
+ }
+
+
+
+
+
+
+
 .shoe-container {
   display: flex;
   flex-direction: column;

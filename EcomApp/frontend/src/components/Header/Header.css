@@ -1,0 +1,25 @@
+.header {
+    background-color: #e9e9e9;
+    
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    font-size: x-large;
+    font-family: fantasy;
+  }
+
+
+
+
+
+
+  

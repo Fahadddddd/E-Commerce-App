@@ -3,6 +3,8 @@ const mongoose = require('mongoose');  // For working with mongodb
 const morgan = require('morgan');       // Log in console which api has been called
 const bodyParser = require('body-parser');  // Parse the incoming value
 const cors = require('cors');
+const Razorpay = require("razorpay");
+require("dotenv").config();
 const path = require('path');
 const app = express();
 //const { ServerSelectionError } = require('mongodb');
@@ -31,6 +33,7 @@ app.use(cors());
 
 app.use(express.json());
 
+app.use(express.urlencoded({ extended: false }));
 // app.use(express.static(path.join(__dirname, '.ecomapp/build')));
 
 // Serve static files from the React app
@@ -42,7 +45,36 @@ app.get('*', (req, res) => {
 });
 
 
-const PORT = process.env.PORT || 3000
+
+
+
+const PORT = process.env.PORT || 5000
+
+app.post("/order" , async (req,res) => {
+
+    try{
+    const razorpay = new Razorpay({
+        key_id: process.env.RAZORPAY_KEY_ID,
+        key_secret: process.env.RAZORPAY_SECRET,
+    });
+
+
+    const options = req.body;
+    const order = await razorpay.orders.create(options);
+
+    if(!order)
+    {
+        res.status(500).json({message : "Something went wrong" , status : false})
+    }
+
+    res.json(order);
+    } catch(err)
+    {
+        console.log("Error");
+    }
+});
+
+
 
 app.listen(PORT ,() =>{
     console.log(`Server is running on port ${PORT}`)
@@ -50,6 +82,9 @@ app.listen(PORT ,() =>{
 
 app.use('/api/address', AddressRoute)
 app.use('/api', AuthRoute)
+
+
+
 
 // app.get("/apii", (req,res) => {
 //     res.send("Hello World");
