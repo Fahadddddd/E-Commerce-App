@@ -3,22 +3,30 @@ const Address = require('../models/addressModel');
 // Create a new address
 exports.createAddress = async (req, res) => {
     try {
-        const { Firstname, Lastname, email, Address: address, State, City, Pincode } = req.body;
-        
+        const { email, phone, Firstname, Lastname, Country, State, Address: address, City, Pincode, ProductName, ProductSize, ProductPrice } = req.body;
+
+        // Optional: Add more detailed validation if necessary
+
         const newAddress = new Address({
+            email,
+            phone,
             Firstname,
             Lastname,
-            email,
-            Address: address,
+            Country,
             State,
+            Address: address,
             City,
-            Pincode
+            Pincode,
+            ProductName,
+            ProductSize,
+            ProductPrice,
         });
 
         await newAddress.save();
-        
+
         res.status(201).json({ message: 'Address created successfully', data: newAddress });
     } catch (error) {
+        console.error('Error creating address:', error);  // Log the error for debugging
         res.status(400).json({ message: error.message });
     }
 };

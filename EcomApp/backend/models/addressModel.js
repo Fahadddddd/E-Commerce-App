@@ -2,18 +2,27 @@ const mongoose = require('mongoose')
 
 
 const addressSchema = new mongoose.Schema({
-    Firstname : String,
-    Lastname : String,
-     
     email : {
         type : String,
         unique : true,
         required : true
     },
-    Address : String,
+    phone : {
+        type : Number,
+        unique : true,
+        required : true
+    },
+    Firstname : String,
+    Lastname : String,
+    Country : String,
     State : String,
+    Address : String,
     City : String,
-    Pincode : Number,   
+    Pincode : Number, 
+    ProductName: String,
+    ProductSize: String,
+    ProductPrice: Number,
+    
 },{
     timestamps : true
 })

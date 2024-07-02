@@ -387,3 +387,88 @@ html {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
+
+
+
+/* checkout */
+
+.checkout-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.checkout-info {
+  width: 60%;
+}
+
+.checkout-summary {
+  width: 35%;
+  border-left: 1px solid #ccc;
+  padding-left: 20px;
+}
+
+.checkout-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.checkout-steps a {
+  text-decoration: none;
+  color: #000;
+  padding: 10px;
+  border-bottom: 2px solid transparent;
+}
+
+.checkout-steps a.active {
+  border-bottom: 2px solid #000;
+}
+
+.checkout-form input, .checkout-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+.shipping-button {
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.order-item img {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+}
+
+.order-item div {
+  flex-grow: 1;
+}
+
+.order-item button {
+  padding: 5px 10px;
+  background-color: transparent;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.order-summary {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.order-summary p {
+  margin: 10px 0;
+}

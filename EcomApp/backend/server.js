@@ -14,7 +14,7 @@ const AddressRoute = require('./routes/address')
 const AuthRoute = require('./routes/auth')
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/testdb',{useNewUrlParser : true, useUnifiedTopology: true});
+mongoose.connect('mongodb://127.0.0.1:27017/testtdb',{useNewUrlParser : true, useUnifiedTopology: true});
 const db = mongoose.connection;
 
 db.on('error',(err) => {
