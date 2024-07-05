@@ -1,0 +1,95 @@
+.product-listing {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .filters {
+    width: 200px;
+    margin-right: 20px;
+  }
+  
+  .filter-section {
+    margin-bottom: 20px;
+  }
+  
+  .filter-section h4 {
+    margin-bottom: 10px;
+  }
+  
+  .filter-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .filter-section ul li {
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+  
+  .products-section {
+    flex: 1;
+  }
+  
+  .search-barr {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .search-barr input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  .search-barr button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-left: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  
+  .productss {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .product-cardd {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .product-cardd img {
+    object-fit: cover;
+    width: 400px;
+    height: 400px;
+  }
+  
+  .product-info {
+    margin-top: 10px;
+  }
+  
+  .product-info h3 {
+    margin: 10px 0;
+    font-size: 1.1em;
+  }
+  
+  .product-info p {
+    color: #000;
+    font-size: 1.5rem;
+    font-family: ui-monospace;
+    font-style: italic;
+  }
+  .sizee-btn
+  {
+    border: 1px solid #ccc;
+    background-color: white;
+    
+    margin-right: 5px;
+    cursor: pointer;
+  }

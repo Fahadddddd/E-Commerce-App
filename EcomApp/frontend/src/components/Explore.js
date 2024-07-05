@@ -1,14 +1,17 @@
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
-import logo from '../images/logo.jpg';
+import logo from '../images/logoo.png';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 
+
 export default function Explore()
 {
+
+  
 
   // const products = [
   //   { id: 1, name: 'PUMA', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', price: 99.00 },
@@ -146,8 +149,10 @@ export default function Explore()
         <img src={logo} style={{height: '75px', width: '75px', borderRadius: '27px'}} alt="YUSI LOGO"/>
         </div>
         <div className="icons">
+        <Link to={`/cart`}>
         <button style={{fontSize: 'x-large',fontFamily: 'fantasy'}} type="button" class="btn btn-dark">Cart</button>
-          {/* <a href="/">User</a> */}
+        </Link>
+          
         </div>
       </nav>
     </header>
@@ -172,7 +177,10 @@ export default function Explore()
       <section className="intro">
         <h1>NEW COLLECTION</h1>
         <p>Summer 2024</p>
+        <Link to="/shop">
         <button>Go To Shop</button>
+        </Link>
+        
       </section>
       <section className="products">
          <div className="product">
