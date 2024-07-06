@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
+import { useContext } from 'react';
 import logo from '../../images/logoo.png';
+import { CartContext } from '../../contexts/CartContext';
 
 
 const Header = () => {
+
+  const { cartItemCount } = useContext(CartContext);
     return (
 <header className="header">
 <nav className="navbar d-flex justify-content-space-around">
@@ -18,7 +22,17 @@ const Header = () => {
   </div>
   <div className="icons">
   <Link to={`/cart`}>
-  <button style={{fontSize: 'x-large',fontFamily: 'fantasy'}} type="button" class="btn btn-dark">Cart</button>
+    
+  <button style={{fontSize: 'x-large',fontFamily: 'fantasy'}} type="button" class="btn btn-dark">Cart
+  {/* {cartItemCount > 0 && <span className="cart-count">{cartItemCount}</span>} */}
+  <span class="position-absolute top-0 start-100 translate-middle text-bg-secondary border border-light rounded-circle">
+    
+  {cartItemCount > 0 && <span className="cart-count">{cartItemCount}</span>}
+    
+    
+  </span>
+  </button>
+  
   </Link>
     {/* <a href="/">User</a> */}
   </div>

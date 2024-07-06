@@ -269,7 +269,7 @@ const Review = () => {
     return (
 
 
-    <div className="checkout-container">
+    <div className="checkout-container container">
       <div className="checkout-info">
         <h1>CHECKOUT</h1>
         <nav className="checkout-steps">

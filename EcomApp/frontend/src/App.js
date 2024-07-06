@@ -10,11 +10,11 @@ import AddressForm from './components/AddressForm';
 import ProductView from './components/ProductView/ProductView';
 import ProductListing from './components/ProductListing/ProductListing';
 import CartPage from './components/Cart/CartPage'
+
 function App() {
   return (
     <>
     
-
     
     <Routes>
       <Route path="/" element={<Explore/>}/>
@@ -27,6 +27,7 @@ function App() {
       <Route path="/shop" element={<ProductListing />}/>
       <Route path="/cart" element={<CartPage />}/>
     </Routes>
+    
     
     </>
   );

@@ -15,11 +15,9 @@
   }
   
   .cart-items {
-    display: flex;
-    flex-direction: row;
-    flex: 2 1;
-    margin-right: 20px;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
   
   .cart-item {

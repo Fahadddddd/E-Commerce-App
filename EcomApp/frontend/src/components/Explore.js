@@ -5,6 +5,7 @@ import logo from '../images/logoo.png';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Header from './Header/header';
 
 
 
@@ -137,8 +138,8 @@ export default function Explore()
  
   return (
     <>
-        
-      <header className="header">
+      <div className='container'>
+      {/* <header className="header">
       <nav className="navbar d-flex justify-content-space-around">
         <ul className="nav-links">
           <li><a href="/">Home</a></li>
@@ -155,7 +156,9 @@ export default function Explore()
           
         </div>
       </nav>
-    </header>
+    </header> */}
+
+    <Header/>
 
 
 
@@ -234,7 +237,7 @@ export default function Explore()
       </div>
     </div>
 
-
+    </div>
 
 
   

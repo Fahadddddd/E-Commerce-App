@@ -112,7 +112,7 @@ const products = [
     return (
         <>
         <Header/>
-      <div className="product-listing">
+      <div className="product-listing container">
         <div className="filters">
           <div className="filter-section">
             <h4>Size</h4>
