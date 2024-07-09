@@ -8,7 +8,7 @@ const Checkout = () => {
   const receiptId = "qwsaq1";
 
   const paymentHandler = async (e) => {
-    const response = await fetch("http://localhost:5000/order", {
+    const response = await fetch("https://yusii-backend.onrender.com/order", {
       method: "POST",
       body: JSON.stringify({
         amount,
