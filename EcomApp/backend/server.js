@@ -14,7 +14,7 @@ const app = express();
 const AddressRoute = require('./routes/address')
 const AuthRoute = require('./routes/auth')
 
-const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/testtdb?retryWrites=true&connectTimeoutMS=10000';
+const mongoUri = 'mongodb://127.0.0.1:27017/testtdb?retryWrites=true&connectTimeoutMS=10000';
 
 
 mongoose.connect(mongoUri,{useNewUrlParser : true, useUnifiedTopology: true});
