@@ -397,6 +397,7 @@ html {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  justify-content: space-between;
 }
 
 .checkout-info {

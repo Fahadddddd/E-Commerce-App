@@ -3,11 +3,7 @@ const Address = require('../models/addressModel');
 // Create a new address
 exports.createAddress = async (req, res) => {
     try {
-        const { email, phone, Firstname, Lastname, Country, State, Address: address, City, Pincode, ProductName, ProductSize, ProductPrice } = req.body;
-
-        // Optional: Add more detailed validation if necessary
-
-        const newAddress = new Address({
+        const {
             email,
             phone,
             Firstname,
@@ -17,19 +13,33 @@ exports.createAddress = async (req, res) => {
             Address: address,
             City,
             Pincode,
-            ProductName,
-            ProductSize,
-            ProductPrice,
-        });
-
-        await newAddress.save();
-
-        res.status(201).json({ message: 'Address created successfully', data: newAddress });
-    } catch (error) {
-        console.error('Error creating address:', error);  // Log the error for debugging
-        res.status(400).json({ message: error.message });
-    }
-};
+            productDetails,
+          } = req.body;
+      
+          const newAddress = new Address({
+            email,
+            phone,
+            Firstname,
+            Lastname,
+            Country,
+            State,
+            Address: address,
+            City,
+            Pincode,
+            Products: productDetails.map(product => ({
+              ProductName: product.ProductName,
+              ProductSize: Array.isArray(product.ProductSize) ? product.ProductSize.join(', ') : product.ProductSize,
+              ProductPrice: product.ProductPrice,
+            })),
+          });
+      
+          await newAddress.save();
+      
+          res.status(201).json({ success: true, data: newAddress });
+        } catch (error) {
+          res.status(500).json({ success: false, message: error.message });
+        }
+      };
 
 // Get all addresses
 exports.getAllAddresses = async (req, res) => {

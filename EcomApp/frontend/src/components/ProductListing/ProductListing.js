@@ -26,81 +26,91 @@ import { Link } from 'react-router-dom';
 
 
 const products = [
-    {
-      id: 1,
-      name: 'Embroidered Seersucker Shirt',
-      price: 99,
-      image: `${process.env.PUBLIC_URL}/images/product1.jpg`,
-      description: 'V-Look T Shirt',
-    },
-    {
-      id: 2,
-      name: 'Basic Slim Fit T-Shirt',
-      price: 99,
-      image: `${process.env.PUBLIC_URL}/images/product2.jpg`,
-      description: 'Cotton T Shirt',
-    },
-    {
-      id: 3,
-      name: 'Blurred Print T-Shirt',
-      price: 99,
-      image: `${process.env.PUBLIC_URL}/images/product3.jpg`,
-      description: 'Henley T Shirt',
-    },
-    {
-      id: 4,
-      name: 'Full Sleeve Zipper',
-      price: 99,
-      image: `${process.env.PUBLIC_URL}/images/product4.jpg`,
-      description: 'Crewnock T Shirt',
-    },
+  {
+    id: 1,
+    name: 'Embroidered Seersucker Shirt',
+    price: 99,
+    image: `${process.env.PUBLIC_URL}/images/product1.jpg`,
+    description: 'V-Look T Shirt',
+    size : 'L',
+  },
+  {
+    id: 2,
+    name: 'Basic Slim Fit T-Shirt',
+    price: 99,
+    image: `${process.env.PUBLIC_URL}/images/product2.jpg`,
+    description: 'Cotton T Shirt',
+    size : 'L',
+  },
+  {
+    id: 3,
+    name: 'Blurred Print T-Shirt',
+    price: 99,
+    image: `${process.env.PUBLIC_URL}/images/product3.jpg`,
+    description: 'Henley T Shirt',
+    size : 'L',
+  },
+  {
+    id: 4,
+    name: 'Full Sleeve Zipper',
+    price: 99,
+    image: `${process.env.PUBLIC_URL}/images/product4.jpg`,
+    description: 'Crewnock T Shirt',
+    size : 'L',
+  },
 
-    {
-      id: 5,
-      name: 'Embroidered Seersucker Shirt',
-      price: 99,
-      image: `${process.env.PUBLIC_URL}/images/product5.jpg`,
-      description: 'V-Look T Shirt',
-    },
-    {
-      id: 6,
-      name: 'Basic Slim Fit T-Shirt',
-      price: 99,
-      image: `${process.env.PUBLIC_URL}/images/product6.jpg`,
-      description: 'Cotton T Shirt',
-    },
-    {
-      id: 7,
-      name: 'Blurred Print T-Shirt',
-      price: 99,
-      image: `${process.env.PUBLIC_URL}/images/product7.jpg`,
-      description: 'Henley T Shirt',
-    },
-    {
-      id: 8,
-      name: 'Full Sleeve Zipper',
-      price: 99,
-      image: `${process.env.PUBLIC_URL}/images/product8.jpg`,
-      description: 'Crewnock T Shirt',
-    },
+  {
+    id: 5,
+    name: 'Embroidered Seersucker Shirt',
+    price: 99,
+    image: `${process.env.PUBLIC_URL}/images/product5.jpg`,
+    description: 'V-Look T Shirt',
+    size : 'XL'
+  },
+  {
+    id: 6,
+    name: 'Basic Slim Fit T-Shirt',
+    price: 99,
+    image: `${process.env.PUBLIC_URL}/images/product6.jpg`,
+    description: 'Cotton T Shirt',
+    size : 'L',
+  },
+  {
+    id: 7,
+    name: 'Blurred Print T-Shirt',
+    price: 99,
+    image: `${process.env.PUBLIC_URL}/images/product7.jpg`,
+    description: 'Henley T Shirt',
+    size : 'S'
+  },
+  {
+    id: 8,
+    name: 'Full Sleeve Zipper',
+    price: 99,
+    image: `${process.env.PUBLIC_URL}/images/product8.jpg`,
+    description: 'Crewnock T Shirt',
+    size : 'L',
+  },
 
-    {
-      id: 9,
-      name: 'Blurred Print T-Shirt',
-      price: 99,
-      image: `${process.env.PUBLIC_URL}/images/product7.jpg`,
-      description: 'Henley T Shirt',
-    },
-    {
-      id: 10,
-      name: 'Full Sleeve Zipper',
-      price: 99,
-      image: `${process.env.PUBLIC_URL}/images/product8.jpg`,
-      description: 'Crewnock T Shirt',
-    },
+  {
+    id: 9,
+    name: 'Blurred Print T-Shirt',
+    price: 99,
+    image: `${process.env.PUBLIC_URL}/images/product7.jpg`,
+    description: 'Henley T Shirt',
+    size : 'L',
+  },
+  {
+    id: 10,
+    name: 'Full Sleeve Zipper',
+    price: 99,
+    image: `${process.env.PUBLIC_URL}/images/product8.jpg`,
+    description: 'Crewnock T Shirt',
+    size : 'L',
+  },
 
 
-  ];
+];
 
 
 

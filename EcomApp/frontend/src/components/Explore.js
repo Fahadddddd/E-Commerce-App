@@ -27,6 +27,7 @@ export default function Explore()
       price: 99,
       image: `${process.env.PUBLIC_URL}/images/product1.jpg`,
       description: 'V-Look T Shirt',
+      size : 'L',
     },
     {
       id: 2,
@@ -34,6 +35,7 @@ export default function Explore()
       price: 99,
       image: `${process.env.PUBLIC_URL}/images/product2.jpg`,
       description: 'Cotton T Shirt',
+      size : 'L',
     },
     {
       id: 3,
@@ -41,6 +43,7 @@ export default function Explore()
       price: 99,
       image: `${process.env.PUBLIC_URL}/images/product3.jpg`,
       description: 'Henley T Shirt',
+      size : 'L',
     },
     {
       id: 4,
@@ -48,6 +51,7 @@ export default function Explore()
       price: 99,
       image: `${process.env.PUBLIC_URL}/images/product4.jpg`,
       description: 'Crewnock T Shirt',
+      size : 'L',
     },
 
     {
@@ -56,6 +60,7 @@ export default function Explore()
       price: 99,
       image: `${process.env.PUBLIC_URL}/images/product5.jpg`,
       description: 'V-Look T Shirt',
+      size : 'XL'
     },
     {
       id: 6,
@@ -63,6 +68,7 @@ export default function Explore()
       price: 99,
       image: `${process.env.PUBLIC_URL}/images/product6.jpg`,
       description: 'Cotton T Shirt',
+      size : 'L',
     },
     {
       id: 7,
@@ -70,6 +76,7 @@ export default function Explore()
       price: 99,
       image: `${process.env.PUBLIC_URL}/images/product7.jpg`,
       description: 'Henley T Shirt',
+      size : 'S'
     },
     {
       id: 8,
@@ -77,6 +84,7 @@ export default function Explore()
       price: 99,
       image: `${process.env.PUBLIC_URL}/images/product8.jpg`,
       description: 'Crewnock T Shirt',
+      size : 'L',
     },
 
     {
@@ -85,6 +93,7 @@ export default function Explore()
       price: 99,
       image: `${process.env.PUBLIC_URL}/images/product7.jpg`,
       description: 'Henley T Shirt',
+      size : 'L',
     },
     {
       id: 10,
@@ -92,6 +101,7 @@ export default function Explore()
       price: 99,
       image: `${process.env.PUBLIC_URL}/images/product8.jpg`,
       description: 'Crewnock T Shirt',
+      size : 'L',
     },
 
 

@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
@@ -47,6 +46,7 @@ const Review = () => {
       price: 99,
       image: `${process.env.PUBLIC_URL}/images/product5.jpg`,
       description: 'V-Look T Shirt',
+      size : 'XS'
     },
     {
       id: 6,
@@ -62,6 +62,7 @@ const Review = () => {
       price: 99,
       image: `${process.env.PUBLIC_URL}/images/product7.jpg`,
       description: 'Henley T Shirt',
+      size : 'XL'
     },
     {
       id: 8,
@@ -172,9 +173,10 @@ const Review = () => {
   const [pincode, setPincode] = useState('');
     const [responseMessage, setResponseMessage] = useState('');
 
-    const productname = selectedProduct.name;
-    const productprice = selectedProduct.price;
-    const productsize = selectedProduct.size;
+  const productname = selectedProduct.name;
+  const productprice = selectedProduct.price;
+  const productsize = selectedProduct.size;
+
 
     //setProduct = selectedProduct
     // const handleSubmit = async (event) => {
@@ -229,7 +231,7 @@ const Review = () => {
       try {
           console.log('Request Body:', requestBody);  // Log the request body for debugging
   
-          const response = await fetch('/api/address', {
+          const response = await fetch('/api/singleaddress', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
@@ -334,10 +336,3 @@ const Review = () => {
 };
 
 export default Review;
-
-
-
-
-
-
-

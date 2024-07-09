@@ -54,7 +54,7 @@
   }
   
   .order-summary {
-    flex: 1;
+    
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -78,4 +78,5 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin: 4px;
   }

@@ -7,6 +7,7 @@ const Razorpay = require("razorpay");
 require("dotenv").config();
 const path = require('path');
 const app = express();
+// const productsRouter = require('./routes/product');
 //const { ServerSelectionError } = require('mongodb');
 
 
@@ -80,8 +81,11 @@ app.listen(PORT ,() =>{
     console.log(`Server is running on port ${PORT}`)
 })
 
+
 app.use('/api/address', AddressRoute)
 app.use('/api', AuthRoute)
+
+// app.use('/api/product', productsRouter);
 
 
 

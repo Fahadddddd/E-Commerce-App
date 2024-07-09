@@ -1,5 +1,6 @@
 
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../Header/header';
 import './CartPage.css';
 import { CartContext } from '../../contexts/CartContext'; // Adjust the import path as needed
@@ -40,7 +41,13 @@ const CartPage = () => {
               <input type="checkbox" id="terms" />
               <label htmlFor="terms">I agree to the Terms and Conditions</label>
             </div>
-            <button className="continue-btn">Continue</button>
+            <Link to="/shop">
+                <button className="continue-btn">Continue Shopping</button>
+            </Link>
+            <Link to="/checkout">
+            <button className="continue-btn">Proceed To Checkout</button>
+            </Link>
+            
           </div>
         </div>
       </div>

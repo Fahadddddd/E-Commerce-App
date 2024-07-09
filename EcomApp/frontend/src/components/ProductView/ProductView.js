@@ -325,8 +325,11 @@ const ProductView = () => {
           >
             Add To Cart
           </button>
-          <button className="add-to-cart">
-            <Link to={`/Review/${selectedProduct.id}`}>Buy Now</Link>
+          <button className="add-to-cart"
+          onClick={() => addToCart(selectedProduct)}
+          >
+            {/* <Link to= {`/Review/${selectedProduct.id}`} >Buy Now</Link> */}
+            <Link to={`/cart`}>Buy Now</Link>
           </button>
         </div>
       </div>
