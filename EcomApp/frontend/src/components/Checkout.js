@@ -103,7 +103,7 @@ const Checkout = () => {
     console.log('Request Body:', requestBody);
 
     try {
-      const response = await fetch('/api/address', {
+      const response = await fetch('https://yusii-backend.onrender.com/api/address', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
