@@ -1,7 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useRef ,useEffect  } from 'react'
 import { Link } from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
-import logo from '../images/logoo.png';
+// import logo from '../images/logoo.png';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -143,6 +143,16 @@ export default function Explore()
     ]
   };
 
+  useEffect(() => {
+    // Set the overflow-x to hidden on component mount
+    document.body.style.overflowX = 'hidden';
+
+    // Clean up the style on component unmount
+    return () => {
+      document.body.style.overflowX = '';
+    };
+  }, []);
+
 
   const navigate = useNavigate();
  
@@ -182,7 +192,7 @@ export default function Explore()
     </ul>
     
     <div className="search-bar" style={{paddingLeft: '40px'}}>
-          <input style={{height: '40px',width: '400px'}} type="text" placeholder="Search" />
+          <input  type="text" placeholder="Search" />
     </div>
 
   

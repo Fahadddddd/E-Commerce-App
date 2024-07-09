@@ -1,4 +1,4 @@
-.cart-page {
+/* .cart-page {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -79,4 +79,125 @@
     border-radius: 5px;
     cursor: pointer;
     margin: 4px;
-  }
+  } */
+
+
+  .cart-page {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.cart-container {
+    display: flex;
+    width: 80%;
+}
+
+.cart-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.cart-item {
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.cart-item img {
+    width: 300px;
+    height: 300px;
+    margin-right: 20px;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-details p {
+    margin: 5px 0;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+}
+
+.quantity button {
+    width: 30px;
+    height: 30px;
+}
+
+.order-summary {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.summary-details p {
+    margin: 10px 0;
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.continue-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 4px;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .cart-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .cart-items {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cart-item img {
+        width: 100%;
+        height: auto;
+        margin: 0 0 20px 0;
+    }
+
+    .order-summary {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .terms {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .continue-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

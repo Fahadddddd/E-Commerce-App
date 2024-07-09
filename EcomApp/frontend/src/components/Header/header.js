@@ -13,9 +13,11 @@ const Header = () => {
 <header className="header">
 <nav className="navbar d-flex justify-content-space-around">
   <ul className="nav-links">
-    <li><a href="../">Home</a></li>
-    <li><a href="/">Collections</a></li>
-    <li><a href="/">New</a></li>
+  
+    <li><Link to={`/`}><a>Home</a></Link></li>
+  
+    <li><a href="#">Collections</a></li>
+    <li><a href="#">New</a></li>
   </ul>
   <div id="logo">
   <img src={logo} style={{height: '75px', width: '75px', borderRadius: '27px'}} alt="YUSI LOGO"/>
