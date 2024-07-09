@@ -14,8 +14,10 @@ const app = express();
 const AddressRoute = require('./routes/address')
 const AuthRoute = require('./routes/auth')
 
+const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/testtdb?retryWrites=true&connectTimeoutMS=10000';
 
-mongoose.connect('mongodb://127.0.0.1:27017/testtdb',{useNewUrlParser : true, useUnifiedTopology: true});
+
+mongoose.connect(mongoUri,{useNewUrlParser : true, useUnifiedTopology: true});
 const db = mongoose.connection;
 
 db.on('error',(err) => {
