@@ -14,10 +14,20 @@ const app = express();
 const AddressRoute = require('./routes/address')
 const AuthRoute = require('./routes/auth')
 
-const mongoUri = 'mongodb://0.0.0.0:27017/testtdb?retryWrites=true&connectTimeoutMS=10000';
+// const mongoUri = 'mongodb://0.0.0.0:27017/testtdb?retryWrites=true&connectTimeoutMS=10000';
 
 
-mongoose.connect(mongoUri,{useNewUrlParser : true, useUnifiedTopology: true});
+// mongoose.connect(mongoUri,{useNewUrlParser : true, useUnifiedTopology: true});
+
+const uri = "mongodb+srv://mdfahadalam008:Nw0gruBQ40JUQtzD@cluster0.ns5i0dw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
 const db = mongoose.connection;
 
 db.on('error',(err) => {
