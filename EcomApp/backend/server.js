@@ -19,7 +19,9 @@ const AuthRoute = require('./routes/auth')
 
 // mongoose.connect(mongoUri,{useNewUrlParser : true, useUnifiedTopology: true});
 
-const uri = "mongodb+srv://mdfahadalam008:Nw0gruBQ40JUQtzD@cluster0.ns5i0dw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// const uri = "mongodb+srv://mdfahadalam008:Nw0gruBQ40JUQtzD@cluster0.ns5i0dw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+const uri = process.env.MONGOD_URI;
 
 mongoose.connect(uri,{useNewUrlParser : true, useUnifiedTopology: true});
 
