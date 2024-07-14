@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { CartContext } from '../contexts/CartContext';
 
 const Checkout = () => {
-  const amount = 500;
+  const amount = `${cartItems.reduce((total, item) => total + item.price * item.quantity, 0) + 10}`;
   const currency = "INR";
   const receiptId = "qwsaq1";
 
@@ -153,7 +153,7 @@ const Checkout = () => {
           <input type="text" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} required />
           <input type="text" placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} required />
           <input type="text" placeholder="Postal Code" value={pincode} onChange={(e) => setPincode(e.target.value)} required />
-          <button onClick={handleSubmit} className="shipping-button">Proceed To Payment</button>
+          {/* <button onClick={handleSubmit} className="shipping-button">Proceed To Payment</button> */}
         </div>
       </div>
 
@@ -178,6 +178,10 @@ const Checkout = () => {
           <input type="checkbox" id="terms" />
           <label htmlFor="terms">I agree to the Terms and Conditions</label>
         </div>
+        <button onClick={() => { handleSubmit(); paymentHandler(); }} className="shipping-button">Pay Online(Razorpay)</button>
+        <br/>
+        <br/>
+        <button onClick={() => { handleSubmit(); paymentHandler(); }} className="shipping-button">COD (Pay On Delivery)</button>
       </div>
     </div>
   );

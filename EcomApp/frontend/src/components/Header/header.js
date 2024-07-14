@@ -17,15 +17,15 @@ const Header = () => {
     <li><Link to={`/`}><a>Home</a></Link></li>
   
     <li><a href="#">Collections</a></li>
-    <li><a href="#">New</a></li>
+    {/* <li><a href="#">New</a></li> */}
   </ul>
   <div id="logo">
-  <img src={logo} style={{height: '75px', width: '75px', borderRadius: '27px'}} alt="YUSI LOGO"/>
+  <img src={logo} alt="YUSI LOGO"/>
   </div>
   <div className="icons">
   <Link to={`/cart`}>
     
-  <button style={{fontSize: 'x-large',fontFamily: 'fantasy'}} type="button" class="btn btn-dark">Cart
+  <button type="button" class="btn btnnn_ btn-dark">Cart
   {/* {cartItemCount > 0 && <span className="cart-count">{cartItemCount}</span>} */}
   <span class="position-absolute top-0 start-100 translate-middle text-bg-secondary border border-light rounded-circle">
     
