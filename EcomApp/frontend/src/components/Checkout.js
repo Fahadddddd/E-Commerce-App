@@ -116,8 +116,8 @@ const Checkout = () => {
 
       if (response.ok) {
         setResponseMessage(`Order received: ${result.data.Address} to be delivered at ${result.data.City}`);
-        alert("Order Placed Successfully");
-        window.location.href = '/';  // Redirect to home page
+        // alert("Order Placed Successfully");
+        // window.location.href = '/';  // Redirect to home page
       } else {
         console.error('Error:', result.message);
         alert(result.message);
