@@ -78,7 +78,7 @@ const Checkout = () => {
   const [responseMessage, setResponseMessage] = useState('');
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     // Flattening cart items into separate fields
     const productDetails = cartItems.map(item => ({
