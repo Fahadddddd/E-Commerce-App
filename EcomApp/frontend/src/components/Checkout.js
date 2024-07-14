@@ -1,4 +1,4 @@
-
+// import logo from '../images/logoo.png';
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../contexts/CartContext';
 
@@ -27,9 +27,9 @@ const Checkout = () => {
       "key": "rzp_test_1wzX0gWhtHOMrI", // Enter the Key ID generated from the Dashboard
       amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       currency,
-      "name": "Acme Corp", //your business name
+      "name": "Yusi.co", //your business name
       "description": "Test Transaction",
-      "image": "https://example.com/your_logo",
+      "image": "../images/logoo.png",
       "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
       "handler": function (response){
         alert(response.razorpay_payment_id);
