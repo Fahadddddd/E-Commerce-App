@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { CartContext } from '../contexts/CartContext';
 
 const Checkout = () => {
+  const { cartItems } = useContext(CartContext);
   const amount = `${cartItems.reduce((total, item) => total + item.price * item.quantity, 0) + 10}`;
   const currency = "INR";
   const receiptId = "qwsaq1";
@@ -62,7 +63,7 @@ const Checkout = () => {
     e.preventDefault();
   };
 
-  const { cartItems } = useContext(CartContext);
+  
 
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
