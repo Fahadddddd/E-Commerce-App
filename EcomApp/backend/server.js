@@ -76,7 +76,7 @@ const transporter = nodemailer.createTransport({
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
   
     const mailOptions = {
-      from: 'your-email@gmail.com',
+      from: 'Driftz@gmail.com',
       to: email,
       subject: 'Your OTP Code',
       text: `Your OTP code is ${otp}`,
