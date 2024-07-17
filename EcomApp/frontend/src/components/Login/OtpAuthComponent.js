@@ -5,7 +5,8 @@ const OtpAuthComponent = () => {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
   const [message, setMessage] = useState('');
-  const [step, setStep] = useState(1); // Step 1: Request OTP, Step 2: Verify OTP
+  const [step, setStep] = useState(1); 
+  // Step 1: Request OTP, Step 2: Verify OTP
 
   const handleRequestOtp = async (e) => {
     e.preventDefault();

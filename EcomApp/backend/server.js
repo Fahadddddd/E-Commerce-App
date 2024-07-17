@@ -6,7 +6,10 @@ const cors = require('cors');
 const Razorpay = require("razorpay");
 require("dotenv").config();
 const path = require('path');
+const nodemailer = require('nodemailer');
 const app = express();
+
+
 // const productsRouter = require('./routes/product');
 //const { ServerSelectionError } = require('mongodb');
 
@@ -14,25 +17,13 @@ const app = express();
 const AddressRoute = require('./routes/address')
 const AuthRoute = require('./routes/auth')
 
-// const mongoUri = 'mongodb://0.0.0.0:27017/testtdb?retryWrites=true&connectTimeoutMS=10000';
 
-
-// mongoose.connect(mongoUri,{useNewUrlParser : true, useUnifiedTopology: true});
-
-// const uri = "mongodb+srv://mdfahadalam008:Nw0gruBQ40JUQtzD@cluster0.ns5i0dw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 const uri = process.env.MONGOD_URI;
 
 mongoose.connect(uri,{useNewUrlParser : true, useUnifiedTopology: true});
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-// const client = new MongoClient(uri, {
-//   serverApi: {
-//     version: ServerApiVersion.v1,
-//     strict: true,
-//     deprecationErrors: true,
-//   }
-// });
+
 const db = mongoose.connection;
 
 db.on('error',(err) => {
@@ -67,6 +58,57 @@ app.get('*', (req, res) => {
 
 
 const PORT = process.env.PORT || 5000
+
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'Driftz@gmail.com',
+      pass: 'Ruw@id007',
+    },
+  });
+  
+  // Endpoint to request OTP
+  app.post('/reqOTP', (req, res) => {
+    const { email } = req.body;
+  
+    // Generate a random OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+  
+    const mailOptions = {
+      from: 'your-email@gmail.com',
+      to: email,
+      subject: 'Your OTP Code',
+      text: `Your OTP code is ${otp}`,
+    };
+  
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error sending email:', error);
+        return res.status(500).json({ message: 'Error sending OTP' });
+      }
+      console.log('Email sent:', info.response);
+      // Save OTP in session or database for later verification
+      req.session.otp = otp; // Example using session
+      res.status(200).json({ message: 'OTP sent to email' });
+    });
+  });
+  
+  // Endpoint to verify OTP
+  app.post('/verifyOTP', (req, res) => {
+    const { email, otp } = req.body;
+  
+    // Check if the OTP matches
+    if (req.session.otp === otp) {
+      res.status(200).json({ message: 'OTP verified' });
+    } else {
+      res.status(400).json({ message: 'Invalid OTP' });
+    }
+  });
+  
+
+
+
 
 app.post("/order" , async (req,res) => {
 
