@@ -36,7 +36,11 @@ const Header = () => {
   </button>
   
   </Link>
-    {/* <a href="/">User</a> */}
+
+  <Link to={`/login`}>
+      <a href="/">User</a>
+  </Link>
+    
   </div>
 </nav>
 </header>
