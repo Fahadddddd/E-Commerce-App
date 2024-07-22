@@ -477,6 +477,9 @@ html {
   padding: 20px;
   justify-content: space-between;
 }
+.checkout-info {
+  width: 60%;
+}
 
 @media (max-width: 576px) 
 {
@@ -486,11 +489,15 @@ html {
   padding: 20px;
   justify-content: space-between;
   }
+
+  .checkout-info {
+    width: 100%;
+  }
+
+
 }
 
-.checkout-info {
-  width: 60%;
-}
+
 
 .checkout-summary {
   width: 35%;

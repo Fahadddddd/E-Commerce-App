@@ -16,13 +16,22 @@ const Header = () => {
   
     <li><Link to={`/`}><a>Home</a></Link></li>
   
+    <Link to="/shop">
     <li><a href="#">Collections</a></li>
+    </Link>
+    
     {/* <li><a href="#">New</a></li> */}
   </ul>
   <div id="logo">
   <img src={logo} alt="YUSI LOGO"/>
   </div>
   <div className="icons">
+
+  <Link to={`/login`}>
+      <a href="/">User</a>
+  </Link>
+
+  
   <Link to={`/cart`}>
     
   <button type="button" class="btn btnnn_ btn-dark">Cart
@@ -37,9 +46,7 @@ const Header = () => {
   
   </Link>
 
-  <Link to={`/login`}>
-      <a href="/">User</a>
-  </Link>
+  
     
   </div>
 </nav>

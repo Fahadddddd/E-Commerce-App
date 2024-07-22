@@ -16,10 +16,11 @@ const CartPage = () => {
           <div className="cart-items">
             {cartItems.map(item => (
               <div className="cart-item" key={item.id}>
-                <img src={item.image} alt={item.name} />
+                <img src={item.images[0]} alt={item.name} />
                 <div className="item-details">
                   <p>{item.name}</p>
                   <p>${item.price}</p>
+                  <p>Product Size: {item.selectedSize}</p>
                   <div className="quantity">
                     <button onClick={() => handleQuantityChange(item.id, item.quantity - 1)} >-</button>
                     <span>{item.quantity}</span>

@@ -165,7 +165,7 @@ const Checkout = () => {
             <div className="item-details">
               <p>Product Name: {item.name}</p>
               <p>Product Price: Rs. {item.price}</p>
-              <p>Product Size: {item.size}</p>
+              <p>Product Size: {item.selectedSize}</p>
             </div>
           </div>
         ))}

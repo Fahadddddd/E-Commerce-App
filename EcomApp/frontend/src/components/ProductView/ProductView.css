@@ -14,10 +14,11 @@
   }
   
   .main-image {
-    width: 50%;
+    width: 80%;
     max-width: 500px;
     margin-bottom: 20px;
     border: 6px solid darkgrey;
+    height: 100vh;
   }
   
   .thumbnail-images {
@@ -112,6 +113,25 @@
     color: white;
 }
 
+
+.size-button {
+  /* padding: 10px 20px; */
+  border: 2px solid #ccc;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.size-button:hover {
+  border: 2px solid #333;
+}
+
+.size-button.selected {
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #333;
+}
+
 /* ProductView.css */
 
 /* For devices with a max width of 1200px */
@@ -128,6 +148,7 @@
 
   .main-image {
     width: 70%;
+    height:100vh;
   }
 }
 

@@ -10,7 +10,7 @@ import ProductView from './components/ProductView/ProductView';
 import ProductListing from './components/ProductListing/ProductListing';
 import CartPage from './components/Cart/CartPage'
 import Checkout from './components/Checkout';
-import OtpAuthComponent from './components/Login/OtpAuthComponent';
+
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
       <Route path="/shop" element={<ProductListing />}/>
       <Route path="/cart" element={<CartPage />}/>
       <Route path="/checkout" element={<Checkout/>}/>
-      <Route path="/login" element={<OtpAuthComponent/>}/>
+      
 
     </Routes>
     
