@@ -391,6 +391,7 @@
 import React, { useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './ProductView.css';
 import Header from '../Header/header.js';
 import { CartContext } from '../../contexts/CartContext'; // Adjust the import path as needed
@@ -399,6 +400,7 @@ import size from '../../images/sizeee.PNG';
 const ProductView = () => {
   const { productId } = useParams();
   const { addToCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const [selectedSize, setSelectedSize] = useState(null);
   const [mainImage, setMainImage] = useState('');
@@ -556,6 +558,8 @@ const ProductView = () => {
   const handleBuyNow = () => {
     if (selectedSize) {
       addToCart({ ...selectedProduct, selectedSize });
+      navigate('/cart');
+      // <Link to={`/cart`}></Link>
       // Navigate to cart or checkout page
     } else {
       alert('Please select a size before buying.');
@@ -622,7 +626,8 @@ const ProductView = () => {
             Add To Cart
           </button>
           <button className="add-to-cart" onClick={handleBuyNow}>
-            <Link to={`/cart`}>Buy Now</Link>
+          
+            Buy Now
           </button>
 
           <br />
