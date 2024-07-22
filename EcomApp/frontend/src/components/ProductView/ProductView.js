@@ -653,7 +653,7 @@ const ProductView = () => {
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body">
-                  <img src={size} alt="Size chart" />
+                  <img src={size} className="imgggg" alt="Size chart" />
                 </div>
               </div>
             </div>
