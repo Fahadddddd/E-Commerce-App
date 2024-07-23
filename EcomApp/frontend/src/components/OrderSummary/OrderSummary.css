@@ -90,3 +90,12 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
+  @media (max-width: 480px)
+  {
+    .details-section
+    {
+        display: flex;
+        flex-direction: column;
+    }
+  }
