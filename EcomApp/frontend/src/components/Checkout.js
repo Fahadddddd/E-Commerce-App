@@ -1,9 +1,11 @@
 // import logo from '../images/logoo.png';
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../contexts/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
   const { cartItems } = useContext(CartContext);
+  const navigate = useNavigate();
   const amount = `${cartItems.reduce((total, item) => total + item.price * item.quantity, 0) + 10}`;
   const currency = "INR";
   const receiptId = "qwsaq1";
@@ -27,7 +29,7 @@ const Checkout = () => {
       "key": "rzp_test_1wzX0gWhtHOMrI", // Enter the Key ID generated from the Dashboard
       amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       currency,
-      "name": "Yusi.co", //your business name
+      "name": "Driftz.co", //your business name
       "description": "Test Transaction",
       // "image": "../images/logoo.png",
       "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
@@ -116,7 +118,8 @@ const Checkout = () => {
 
       if (response.ok) {
         setResponseMessage(`Order received: ${result.data.Address} to be delivered at ${result.data.City}`);
-        // alert("Order Placed Successfully");
+        alert("Order Placed Successfully");
+        navigate('/order-Summary');
         // window.location.href = '/';  // Redirect to home page
       } else {
         console.error('Error:', result.message);
@@ -182,7 +185,7 @@ const Checkout = () => {
         <button onClick={() => { handleSubmit(); paymentHandler(); }} className="shipping-button">Pay Online(Razorpay)</button>
         <br/>
         <br/>
-        <button onClick={() => { handleSubmit(); paymentHandler(); }} className="shipping-button">COD (Pay On Delivery)</button>
+        <button onClick={() => { handleSubmit(); }} className="shipping-button">COD (Pay On Delivery)</button>
       </div>
     </div>
   );

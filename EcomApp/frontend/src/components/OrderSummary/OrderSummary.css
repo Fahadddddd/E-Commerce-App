@@ -1,0 +1,92 @@
+.order-summary {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .headerr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .hide-button {
+    background: none;
+    border: none;
+    color: blue;
+    cursor: pointer;
+  }
+  
+  .total-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .product {
+    display: flex;
+    margin: 20px 0;
+  }
+  
+  .product-image {
+    width: 100px;
+    height: auto;
+  }
+  
+  .product-details {
+    margin-left: 10px;
+  }
+  
+  .product-name {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .product-size {
+    color: gray;
+  }
+  
+  .price-details {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .subtotal, .discount, .shipping, .total, .tax, .savings {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+  }
+  
+  .order-status {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .status {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .status-item {
+    width: 24%;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px 0;
+  }
+  
+  .shipping-address {
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .order-details, .contact-details {
+    margin: 20px 0;
+  }
+
+
+  .details-section
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
