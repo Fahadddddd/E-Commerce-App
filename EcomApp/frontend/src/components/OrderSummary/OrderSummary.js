@@ -1,11 +1,34 @@
 import React from 'react';
 import './OrderSummary.css';
 import Header from '../Header/header';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 const OrderSummary = () => {
 
-    const { result } = useParams();
-    const orderData = JSON.parse(result);
+//     const { result } = useParams();
+//     let orderData;
+//   try {
+//     orderData = JSON.parse(decodeURIComponent(result));
+//   } catch (e) {
+//     console.error("Error parsing JSON:", e);
+//     orderData = {}; // Fallback to an empty object
+//   }
+
+
+const [orderData, setOrderData] = useState(null);
+
+  useEffect(() => {
+    const storedData = localStorage.getItem('orderSummary');
+    if (storedData) {
+      setOrderData(JSON.parse(storedData));
+    }
+  }, []);
+
+  if (!orderData) {
+    return <div>Loading...</div>;
+  }
+
+
+
 
   return (
     <>
@@ -50,21 +73,35 @@ const OrderSummary = () => {
         <div className="details-section">
           <div className="contact-info">
             <p>Contact information</p>
-            <p>mdfahadalam007@gmail.com</p>
+            <p>{orderData.email}</p>
           </div>
           <div className="payment-method">
-            <p>Payment method</p>
-            <p>Simpl (UPI) - ₹1,329.05</p>
+            {/* <p>Payment method</p>
+            <p>Simpl (UPI) - ₹1,329</p> */}
+
+<h2>Products</h2>
+          {orderData.productDetails && orderData.productDetails.length > 0 ? (
+            orderData.productDetails.map((product, index) => (
+              <div key={index}>
+                <p><strong>Product Name:</strong> {product.ProductName}</p>
+                <p><strong>Product Size:</strong> {product.ProductSize}</p>
+                <p><strong>Product Price:</strong> Rs. {product.ProductPrice}</p>
+              </div>
+            ))
+          ) : (
+            <p>No products found in the order.</p>
+          )}
+
           </div>
           <div className="address">
             <p>Shipping address</p>
-            <p>Fahad Fahad</p>
-            <p>Haji Rhman Manjil Near Masjid</p>
-            <p>Rhamat Gunj</p>
-            <p>Rhamat Gunj wassepur</p>
-            <p>826001 dhanbad JH</p>
+            <p>{orderData.Firstname} {orderData.Lastname}</p>
+            <p>{orderData.Address}</p>
+            {/* <p>Rhamat Gunj</p> */}
+            {/* <p>Rhamat Gunj wassepur</p> */}
+            <p>{orderData.Pincode} {orderData.City} {orderData.State}</p>
             <p>India</p>
-            <p>9065326055</p>
+            <p>{orderData.phone}</p>
           </div>
         </div>
         <div className="shipping-method">

@@ -85,7 +85,7 @@ const Checkout = () => {
     // Flattening cart items into separate fields
     const productDetails = cartItems.map(item => ({
       ProductName: item.name,
-      ProductSize: item.size,
+      ProductSize: item.selectedSize,
       ProductPrice: parseFloat(item.price),
     }));
 
@@ -119,7 +119,10 @@ const Checkout = () => {
       if (response.ok) {
         setResponseMessage(`Order received: ${result.data.Address} to be delivered at ${result.data.City}`);
         alert("Order Placed Successfully");
+        // const encodedResult = encodeURIComponent(JSON.stringify(result.data));
+        localStorage.setItem('orderSummary', JSON.stringify(result.data));
         navigate('/order-Summary');
+        // navigate('/order-Summary');
         // window.location.href = '/';  // Redirect to home page
       } else {
         console.error('Error:', result.message);
