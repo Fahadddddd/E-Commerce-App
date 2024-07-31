@@ -2,6 +2,7 @@ import React from 'react';
 import './ProductListing.css';
 import Header from '../Header/header.js';
 import { Link } from 'react-router-dom';
+import Footer from '../Footer/Footer.js';
 // const products = [
 //   {
 //     id: 1,
@@ -230,6 +231,7 @@ const products = [
           </div>
         </div>
       </div>
+      <Footer/>
       </>
     );
   };

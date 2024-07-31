@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Header from './Header/header';
-
+import Footer from './Footer/Footer';
 
 
 export default function Explore()
@@ -262,7 +262,7 @@ export default function Explore()
 
   
 
-
+          <Footer/>
     </>
   )
 }

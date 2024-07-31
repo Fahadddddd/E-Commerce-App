@@ -5,6 +5,7 @@ import Header from '../Header/header';
 import './CartPage.css';
 import { CartContext } from '../../contexts/CartContext'; // Adjust the import path as needed
 import {useKindeAuth} from '@kinde-oss/kinde-auth-react';
+import Footer from '../Footer/Footer';
 
 const CartPage = () => {
   const { cartItems, handleQuantityChange, handleRemoveItem } = useContext(CartContext);
@@ -54,6 +55,7 @@ const CartPage = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

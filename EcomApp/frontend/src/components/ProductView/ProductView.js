@@ -396,6 +396,7 @@ import './ProductView.css';
 import Header from '../Header/header.js';
 import { CartContext } from '../../contexts/CartContext'; // Adjust the import path as needed
 import size from '../../images/sizeee.PNG';
+import Footer from '../Footer/Footer.js';
 
 const ProductView = () => {
   const { productId } = useParams();
@@ -683,6 +684,7 @@ const ProductView = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

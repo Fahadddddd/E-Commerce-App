@@ -2,6 +2,7 @@ import React from 'react';
 import './OrderSummary.css';
 import Header from '../Header/header';
 import { useEffect, useState } from 'react';
+import Footer from '../Footer/Footer';
 const OrderSummary = () => {
 
 //     const { result } = useParams();
@@ -113,6 +114,7 @@ const [orderData, setOrderData] = useState(null);
         <p>Need help? <a href="#">Contact us</a></p>
       </div> */}
     </div>
+    <Footer/>
     </>
   );
 };
