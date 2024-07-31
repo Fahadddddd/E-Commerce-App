@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import Header from '../Header/header';
 import './CartPage.css';
 import { CartContext } from '../../contexts/CartContext'; // Adjust the import path as needed
+import {useKindeAuth} from '@kinde-oss/kinde-auth-react';
 
 const CartPage = () => {
   const { cartItems, handleQuantityChange, handleRemoveItem } = useContext(CartContext);
+  const { login, register } = useKindeAuth();
 
   return (
     <>
@@ -46,7 +48,7 @@ const CartPage = () => {
                 <button className="continue-btn">Continue Shopping</button>
             </Link>
             <Link to="/checkout">
-            <button className="continue-btn">Proceed To Checkout</button>
+            <button onClick={register} className="continue-btn">Proceed To Checkout</button>
             </Link>
             
           </div>
