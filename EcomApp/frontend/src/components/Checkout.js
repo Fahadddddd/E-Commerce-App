@@ -65,7 +65,7 @@ const Checkout = () => {
     e.preventDefault();
   };
 
-  
+  const [loading, setLoading] = useState(false);
 
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -81,6 +81,8 @@ const Checkout = () => {
 
   const handleSubmit = async (event) => {
     // event.preventDefault();
+
+    setLoading(true);
 
     // Flattening cart items into separate fields
     const productDetails = cartItems.map(item => ({
@@ -135,6 +137,8 @@ const Checkout = () => {
     } catch (error) {
       console.error('Fetch error:', error);
       setResponseMessage(`Error: ${error.message}`);
+    } finally {
+      setLoading(false);  // Stop loading animation
     }
   };
 
@@ -188,7 +192,16 @@ const Checkout = () => {
         <button onClick={() => { handleSubmit(); paymentHandler(); }} className="shipping-button">Pay Online(Razorpay)</button>
         <br/>
         <br/>
-        <button onClick={() => { handleSubmit(); }} className="shipping-button">COD (Pay On Delivery)</button>
+        {/* <button onClick={() => { handleSubmit(); }} className="shipping-button">COD (Pay On Delivery)</button> */}
+
+        <button onClick={() => { handleSubmit(); }} className="shipping-button" disabled={loading}>
+        {loading ? (
+          <span className="loading-animation">Placing Order...<br/> Please Wait </span>
+        ) : (
+          'COD (Pay On Delivery)'
+        )}
+      </button>
+
       </div>
     </div>
   );

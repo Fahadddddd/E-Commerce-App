@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState , useEffect} from 'react';
 import './ProductListing.css';
 import Header from '../Header/header.js';
 import { Link } from 'react-router-dom';
@@ -34,6 +34,7 @@ const products = [
     image: `${process.env.PUBLIC_URL}/images/product1.jpg`,
     description: 'V-Look T Shirt',
     size : 'L',
+    category: 'Over-Sized'
   },
   {
     id: 2,
@@ -42,6 +43,7 @@ const products = [
     image: `${process.env.PUBLIC_URL}/images/product2.jpg`,
     description: 'Cotton T Shirt',
     size : 'L',
+    category: 'Over-Sized'
   },
   {
     id: 3,
@@ -50,6 +52,7 @@ const products = [
     image: `${process.env.PUBLIC_URL}/images/product3.jpg`,
     description: 'Henley T Shirt',
     size : 'L',
+    category: 'slim-Fit'
   },
   {
     id: 4,
@@ -58,6 +61,7 @@ const products = [
     image: `${process.env.PUBLIC_URL}/images/product4.jpg`,
     description: 'Crewnock T Shirt',
     size : 'L',
+    category: 'slim-Fit'
   },
 
   {
@@ -66,7 +70,8 @@ const products = [
     price: 99,
     image: `${process.env.PUBLIC_URL}/images/product5.jpg`,
     description: 'V-Look T Shirt',
-    size : 'XL'
+    size : 'XL',
+    category: 'Polo'
   },
   {
     id: 6,
@@ -75,6 +80,7 @@ const products = [
     image: `${process.env.PUBLIC_URL}/images/product6.jpg`,
     description: 'Cotton T Shirt',
     size : 'L',
+    category: 'Polo'
   },
   {
     id: 7,
@@ -82,7 +88,8 @@ const products = [
     price: 99,
     image: `${process.env.PUBLIC_URL}/images/product7.jpg`,
     description: 'Henley T Shirt',
-    size : 'S'
+    size : 'S',
+    category: 'Over-Sized'
   },
   {
     id: 8,
@@ -91,6 +98,7 @@ const products = [
     image: `${process.env.PUBLIC_URL}/images/product8.jpg`,
     description: 'Crewnock T Shirt',
     size : 'L',
+    category: 'Over-Sized'
   },
 
   {
@@ -100,6 +108,7 @@ const products = [
     image: `${process.env.PUBLIC_URL}/images/product7.jpg`,
     description: 'Henley T Shirt',
     size : 'L',
+    category: 'slim-Fit'
   },
   {
     id: 10,
@@ -108,6 +117,7 @@ const products = [
     image: `${process.env.PUBLIC_URL}/images/product8.jpg`,
     description: 'Crewnock T Shirt',
     size : 'L',
+    category: 'slim-Fit'
   },
 
 
@@ -120,6 +130,30 @@ const products = [
 
 
   const ProductListing = () => {
+
+    const [selectedCategories, setSelectedCategories] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState(products);
+
+
+
+    const handleCategoryChange = (category) => {
+      setSelectedCategories(prev => 
+        prev.includes(category) 
+          ? prev.filter(cat => cat !== category) 
+          : [...prev, category]
+      );
+    };
+
+    useEffect(() => {
+      const filtered = products.filter(product =>
+        selectedCategories.length === 0 || selectedCategories.includes(product.category)
+      );
+      setFilteredProducts(filtered);
+    }, [selectedCategories]);
+
+
+
+
     return (
         <>
         <Header/>
@@ -154,8 +188,27 @@ const products = [
             </ul>
           </div>
           <div className="filter-section">
-            <h4>Category</h4>
-            <ul>
+          <h4>Category</h4>
+        <ul>
+          {['Over-Sized', 'Polo', 'slim-Fit', 'Gym Wear'].map(category => (
+            <li key={category}>
+              <div className="form-check">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  value={category}
+                  id={`flexCheck${category}`}
+                  checked={selectedCategories.includes(category)}
+                  onChange={() => handleCategoryChange(category)}
+                />
+                <label className="form-check-label" htmlFor={`flexCheck${category}`}>
+                  {category}
+                </label>
+              </div>
+            </li>
+          ))}
+        </ul>
+            {/* <ul>
               <li><div class="form-check">
   <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
   <label class="form-check-label" for="flexCheckChecked">
@@ -180,7 +233,7 @@ const products = [
     Gym Wear
   </label>
 </div></li>
-            </ul>
+            </ul> */}
           </div>
           <div className="filter-section">
             <h4>Rating</h4>
@@ -218,7 +271,7 @@ const products = [
             <button>Search</button>
           </div>
           <div className="productss">
-            {products.map(product => (
+            {filteredProducts.map(product => (
               <div className="product-cardd" key={product.id}>
                 <img src={product.image} alt={product.name} />
                 <div className="product-info">

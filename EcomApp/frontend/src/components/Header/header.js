@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import { useContext } from 'react';
-import logo from '../../images/logoo.png';
+import logo from '../../images/logo.jpg';
 import { CartContext } from '../../contexts/CartContext';
 
 
@@ -27,9 +27,9 @@ const Header = () => {
   </div>
   <div className="icons">
 
-  <Link to={`/login`}>
+  {/* <Link to={`/login`}>
       <a href="/">User</a>
-  </Link>
+  </Link> */}
 
   
   <Link to={`/cart`}>
