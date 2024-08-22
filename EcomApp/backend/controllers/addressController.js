@@ -14,6 +14,7 @@ exports.createAddress = async (req, res) => {
             City,
             Pincode,
             productDetails,
+            Payment,
           } = req.body;
       
           const newAddress = new Address({
@@ -31,6 +32,7 @@ exports.createAddress = async (req, res) => {
               ProductSize: Array.isArray(product.ProductSize) ? product.ProductSize.join(', ') : product.ProductSize,
               ProductPrice: product.ProductPrice,
             })),
+            Payment,
           });
       
           await newAddress.save();

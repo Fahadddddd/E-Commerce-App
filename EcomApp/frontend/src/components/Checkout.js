@@ -1,5 +1,4 @@
-// import logo from '../images/logoo.png';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { CartContext } from '../contexts/CartContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,66 +6,8 @@ const Checkout = () => {
   const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
   const amount = `${cartItems.reduce((total, item) => total + item.price * item.quantity, 0) + 10}`;
-  const currency = "INR";
-  const receiptId = "qwsaq1";
-
-  const paymentHandler = async (e) => {
-    const response = await fetch("https://yusii-backend.onrender.com/order", {
-      method: "POST",
-      body: JSON.stringify({
-        amount,
-        currency,
-        receipt: receiptId,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const order = await response.json();
-    console.log(order);
-
-    var options = {
-      "key": "rzp_test_1wzX0gWhtHOMrI", // Enter the Key ID generated from the Dashboard
-      amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-      currency,
-      "name": "Driftz.co", //your business name
-      "description": "Test Transaction",
-      // "image": "../images/logoo.png",
-      "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      "handler": function (response){
-        alert(response.razorpay_payment_id);
-        alert(response.razorpay_order_id);
-        alert(response.razorpay_signature);
-      },
-      "prefill": {
-        "name": "Gaurav Kumar", //your customer's name
-        "email": "gaurav.kumar@example.com",
-        "contact": "9000090000" //Provide the customer's phone number for better conversion rates
-      },
-      "notes": {
-        "address": "Razorpay Corporate Office"
-      },
-      "theme": {
-        "color": "#3399cc"
-      }
-    };
-    var rzp1 = new window.Razorpay(options);
-    rzp1.on('payment.failed', function (response){
-      alert(response.error.code);
-      alert(response.error.description);
-      alert(response.error.source);
-      alert(response.error.step);
-      alert(response.error.reason);
-      alert(response.error.metadata.order_id);
-      alert(response.error.metadata.payment_id);
-    });
-
-    rzp1.open();
-    e.preventDefault();
-  };
 
   const [loading, setLoading] = useState(false);
-
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [firstname, setFirstname] = useState('');
@@ -78,13 +19,25 @@ const Checkout = () => {
   const [pincode, setPincode] = useState('');
 
   const [responseMessage, setResponseMessage] = useState('');
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  useEffect(() => {
+    const isValid =
+      email &&
+      phone &&
+      firstname &&
+      lastname &&
+      state &&
+      address &&
+      city &&
+      pincode;
+
+    setIsFormValid(isValid);
+  }, [email, phone, firstname, lastname, country, state, address, city, pincode]);
 
   const handleSubmit = async (event) => {
-    // event.preventDefault();
-
     setLoading(true);
 
-    // Flattening cart items into separate fields
     const productDetails = cartItems.map(item => ({
       ProductName: item.name,
       ProductSize: item.selectedSize,
@@ -93,19 +46,17 @@ const Checkout = () => {
 
     const requestBody = {
       email,
-      phone: parseInt(phone),  // Ensuring phone is a number
+      phone: parseInt(phone),
       Firstname: firstname,
       Lastname: lastname,
       Country: country,
       State: state,
       Address: address,
       City: city,
-      Pincode: parseInt(pincode),  // Ensuring Pincode is a number
+      Pincode: parseInt(pincode),
       productDetails,
+      paymentStatus: false, // Include this flag for payment status (false means COD)
     };
-
-    // Log the request body for debugging
-    console.log('Request Body:', requestBody);
 
     try {
       const response = await fetch('https://yusii-backend.onrender.com/api/address', {
@@ -121,24 +72,21 @@ const Checkout = () => {
       if (response.ok) {
         setResponseMessage(`Order received: ${result.data.Address} to be delivered at ${result.data.City}`);
         alert("Order Placed Successfully");
-        // const encodedResult = encodeURIComponent(JSON.stringify(result.data));
         localStorage.setItem('orderSummary', JSON.stringify(result.data));
         navigate('/order-Summary');
-        // navigate('/order-Summary');
-        // window.location.href = '/';  // Redirect to home page
       } else {
         console.error('Error:', result.message);
         alert(result.message);
         setResponseMessage(`Error: ${result.message}`);
       }
 
-      console.log('Response:', result);  // Log the response for debugging
+      console.log('Response:', result);
 
     } catch (error) {
       console.error('Fetch error:', error);
       setResponseMessage(`Error: ${error.message}`);
     } finally {
-      setLoading(false);  // Stop loading animation
+      setLoading(false);
     }
   };
 
@@ -164,7 +112,6 @@ const Checkout = () => {
           <input type="text" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} required />
           <input type="text" placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} required />
           <input type="text" placeholder="Postal Code" value={pincode} onChange={(e) => setPincode(e.target.value)} required />
-          {/* <button onClick={handleSubmit} className="shipping-button">Proceed To Payment</button> */}
         </div>
       </div>
 
@@ -189,23 +136,27 @@ const Checkout = () => {
           <input type="checkbox" id="terms" />
           <label htmlFor="terms">I agree to the Terms and Conditions</label>
         </div>
-        <button onClick={() => { handleSubmit(); paymentHandler(); }} className="shipping-button">Pay Online(Razorpay)</button>
+        
         <br/>
         <br/>
-        {/* <button onClick={() => { handleSubmit(); }} className="shipping-button">COD (Pay On Delivery)</button> */}
-
-        <button onClick={() => { handleSubmit(); }} className="shipping-button" disabled={loading}>
-        {loading ? (
-          <span className="loading-animation">Placing Order...<br/> Please Wait </span>
-        ) : (
-          'COD (Pay On Delivery)'
-        )}
-      </button>
-
+        
+        <div className="button-container">
+          <button
+            onClick={handleSubmit}
+            className={`shipping-button ${!isFormValid ? 'disabled-button' : ''}`}
+            disabled={!isFormValid || loading}
+            title={!isFormValid ? "Fill the required details first" : ""}
+          >
+            {loading ? (
+              <span className="loading-animation">Placing Order...<br/> Please Wait </span>
+            ) : (
+              'COD (Pay On Delivery)'
+            )}
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Checkout;
-

@@ -568,3 +568,46 @@ html {
 .order-summary p {
   margin: 10px 0;
 }
+
+
+.shipping-button {
+  background-color: #3399cc;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.shipping-button:hover {
+  background-color: #2878a6;
+}
+
+.disabled-button {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.button-container {
+  position: relative;
+}
+
+.button-container .shipping-button[disabled]::after {
+  content: attr(title);
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.button-container .shipping-button[disabled]:hover::after {
+  opacity: 1;
+}
