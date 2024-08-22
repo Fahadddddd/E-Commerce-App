@@ -55,7 +55,7 @@ const Checkout = () => {
       City: city,
       Pincode: parseInt(pincode),
       productDetails,
-      paymentStatus: false, // Include this flag for payment status (false means COD)
+      // paymentStatus: false, // Include this flag for payment status (false means COD)
     };
 
     try {

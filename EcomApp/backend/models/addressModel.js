@@ -46,7 +46,7 @@ const ProductSchema = new mongoose.Schema({
     City: { type: String, required: true },
     Pincode: { type: Number, required: true },
     Products: [ProductSchema],  // Array of ProductSchema
-    Payment : { type: String, required: true }
+    // Payment : { type: String, required: true }
   }, {
     timestamps: true
   });
