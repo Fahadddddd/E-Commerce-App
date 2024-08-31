@@ -30,16 +30,16 @@ const Header = () => {
             </a>
             <ul className="dropdown-menu">
               <li>
-                <Link to="/shop/slim-fit">Slim-Fit</Link>
+                <Link to="/shop">Slim-Fit</Link>
               </li>
               <li>
-                <Link to="/shop/over-sized">Over-Sized</Link>
+                <Link to="/shop">Over-Sized</Link>
               </li>
               <li>
-                <Link to="/shop/anime">Anime</Link>
+                <Link to="/shop">Anime</Link>
               </li>
               <li>
-                <Link to="/shop/polo">Polo</Link>
+                <Link to="/shop">Polo</Link>
               </li>
             </ul>
           </li>
