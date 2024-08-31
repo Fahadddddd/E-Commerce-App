@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import { useContext } from 'react';
-import logo from '../../images/logo.jpg';
+import logo from '../../images/llogo.png';
 import { CartContext } from '../../contexts/CartContext';
 
 const Header = () => {
