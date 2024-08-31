@@ -1,4 +1,4 @@
-import React, { useRef ,useEffect  } from 'react'
+import React, { useRef ,useEffect,useState  } from 'react'
 import { Link } from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
 // import logo from '../images/logoo.png';
@@ -19,6 +19,36 @@ export default function Explore()
   //   { id: 2, name: 'RED TAPE', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', price: 49.00 },
   //   { id: 3, name: 'NIKE', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', price: 69.00 },
   // ];
+
+  const images = [
+    
+    `${process.env.PUBLIC_URL}/images/product1.jpeg`,
+    `${process.env.PUBLIC_URL}/images/i3.jpeg`,
+    `${process.env.PUBLIC_URL}/images/qq.jpg`,
+    
+    // add more images as needed
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    // Set up an interval to switch images automatically
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); // Change image every 3 seconds
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
 
   const products = [
     {
@@ -183,18 +213,62 @@ export default function Explore()
 
 
     
-    <br/>
+    
 
-    <ul className="category-link">
+    {/* <ul className="category-link">
           <li><a href="/">Over-Sized</a></li>
           <li><a href="/">Slim-Fit</a></li>
           <li><a href="/">Polo</a></li>
     </ul>
+
+
+    
     
     <div className="search-bar" style={{paddingLeft: '40px'}}>
           <input  type="text" placeholder="Search" />
-    </div>
+    </div> */}
 
+
+
+<div className="slideshow-container">
+      <img src={images[currentIndex]} alt="Slideshow" className="slideshow-image" />
+
+      <button className="prev" onClick={goToPrevious}>❮</button>
+      <button className="next" onClick={goToNext}>❯</button>
+
+      <style jsx>{`
+        .slideshow-container {
+          position: relative;
+          max-width: 100%;
+          margin: auto;
+        }
+        .slideshow-image {
+          width: 100%;
+
+          height: 70vh;
+        }
+        .prev, .next {
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          padding: 16px;
+          font-size: 18px;
+          border-radius: 3px;
+          user-select: none;
+        }
+        .prev {
+          left: 0;
+        }
+        .next {
+          right: 0;
+        }
+      `}</style>
+    </div>
+  
   
     <main className="home">
       <section className="intro">
