@@ -15,18 +15,18 @@ const OrderSummary = () => {
 //   }
 
 
-const [orderData, setOrderData] = useState(null);
+// const [orderData, setOrderData] = useState(null);
 
-  useEffect(() => {
-    const storedData = localStorage.getItem('orderSummary');
-    if (storedData) {
-      setOrderData(JSON.parse(storedData));
-    }
-  }, []);
+//   useEffect(() => {
+//     const storedData = localStorage.getItem('orderSummary');
+//     if (storedData) {
+//       setOrderData(JSON.parse(storedData));
+//     }
+//   }, []);
 
-  if (!orderData) {
-    return <div>Loading...</div>;
-  }
+  // if (!orderData) {
+  //   return <div>Loading...</div>;
+  // }
 
 
 
@@ -36,7 +36,7 @@ const [orderData, setOrderData] = useState(null);
     <Header />
 
     <div className="order-summary container">
-      <h1>Thank you, {orderData.Firstname}!</h1>
+      <h1>Thank you</h1>
       <div className="order-status">
         <div className="status-item confirmed">
           <span>Confirmed</span>
@@ -74,14 +74,14 @@ const [orderData, setOrderData] = useState(null);
         <div className="details-section">
           <div className="contact-info">
             <p>Contact information</p>
-            <p>{orderData.email}</p>
+            <p></p>
           </div>
           <div className="payment-method">
             {/* <p>Payment method</p>
             <p>Simpl (UPI) - ₹1,329</p> */}
 
 <h2>Products</h2>
-          {orderData.productDetails && orderData.productDetails.length > 0 ? (
+          {/* {orderData.productDetails && orderData.productDetails.length > 0 ? (
             orderData.productDetails.map((product, index) => (
               <div key={index}>
                 <p><strong>Product Name:</strong> {product.ProductName}</p>
@@ -91,18 +91,18 @@ const [orderData, setOrderData] = useState(null);
             ))
           ) : (
             <p>No products found in the order.</p>
-          )}
+          )} */}
 
           </div>
           <div className="address">
             <p>Shipping address</p>
-            <p>{orderData.Firstname} {orderData.Lastname}</p>
-            <p>{orderData.Address}</p>
+            <p></p>
+            <p></p>
             {/* <p>Rhamat Gunj</p> */}
             {/* <p>Rhamat Gunj wassepur</p> */}
-            <p>{orderData.Pincode} {orderData.City} {orderData.State}</p>
+            <p></p>
             <p>India</p>
-            <p>{orderData.phone}</p>
+            <p></p>
           </div>
         </div>
         <div className="shipping-method">
