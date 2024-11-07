@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { CartContext } from '../contexts/CartContext';
 import { useNavigate } from 'react-router-dom';
 
+
 const BagAnimation = () => (
   <svg
     version="1.1"
@@ -30,10 +31,12 @@ const BagAnimation = () => (
 
 
 const Checkout = () => {
+  
   const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
   const amount = `${cartItems.reduce((total, item) => total + item.price * item.quantity, 0) + 10}`;
 
+  // const [orderId, setOrderId] = useState(null);
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -66,6 +69,8 @@ const Checkout = () => {
     event.preventDefault();
     setLoading(true);
 
+    
+
     const productDetails = cartItems.map(item => ({
       ProductName: item.name,
       ProductSize: item.selectedSize,
@@ -97,22 +102,20 @@ const Checkout = () => {
       const result = await response.json();
 
       if (response.ok) {
-        setResponseMessage(`Order received: ${result.data.Address} to be delivered at ${result.data.City}`);
-        alert("Order Placed Successfully");
-       // localStorage.setItem('orderSummary', JSON.stringify(result.data));
-        navigate('/order-Summary');
-      } else {
-        console.error('Error:', result.message);
-        alert(result.message);
-        setResponseMessage(`Error: ${result.message}`);
-      }
-
-    } catch (error) {
-      console.error('Fetch error:', error);
-      setResponseMessage(`Error: ${error.message}`);
-    } finally {
-      setLoading(false);
+      // setOrderId(result.data._id);
+      alert("Order Placed Successfully");
+      const orderId = result.data._id;
+      navigate('/order-summary', { state: { orderId, orderSummary: result.data } }); // Pass data to the order summary page
+    } else {
+      alert(result.message);
+      setResponseMessage(`Error: ${result.message}`);
     }
+  } catch (error) {
+    setResponseMessage(`Error: ${error.message}`);
+  } finally {
+    setLoading(false);
+  }
+
   };
 
   return (

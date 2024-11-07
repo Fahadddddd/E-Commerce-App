@@ -15,6 +15,7 @@ const app = express();
 
 
 const AddressRoute = require('./routes/address')
+const ReturnRoute = require('./routes/return')
 const AuthRoute = require('./routes/auth')
 
 
@@ -142,6 +143,7 @@ app.listen(PORT ,() =>{
 
 
 app.use('/api/address', AddressRoute)
+app.use('api/return', ReturnRoute)
 app.use('/api', AuthRoute)
 
 // app.use('/api/product', productsRouter);

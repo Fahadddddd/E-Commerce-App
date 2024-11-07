@@ -9,19 +9,19 @@ router.post('/', addressController.createAddress);
 
 
 // Route to get all addresses
-router.get('/', addressController.getAllAddresses);
+// router.get('/', addressController.getAllAddresses);
 
 
 
-// Route to get an address by ID
-router.get('/:id', addressController.getAddressById);
+// // Route to get an address by ID
+// router.get('/:id', addressController.getAddressById);
 
 
 
-// Route to update an address by ID
-router.put('/:id', addressController.updateAddress);
+// // Route to update an address by ID
+// router.put('/:id', addressController.updateAddress);
 
-// Route to delete an address by ID
-router.delete('/:id', addressController.deleteAddress);
+// // Route to delete an address by ID
+// router.delete('/:id', addressController.deleteAddress);
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const Address = require('../models/addressModel');
-
+// const { v4: uuidv4 } = require('uuid');
 // Create a new address
 exports.createAddress = async (req, res) => {
     try {
@@ -16,8 +16,11 @@ exports.createAddress = async (req, res) => {
             productDetails,
             // Payment,
           } = req.body;
+
+        //   const orderId = uuidv4();
       
           const newAddress = new Address({
+            // orderId,
             email,
             phone,
             Firstname,
@@ -35,9 +38,9 @@ exports.createAddress = async (req, res) => {
             // Payment,
           });
       
-          await newAddress.save();
+          const savedOrder = await newAddress.save();
       
-          res.status(201).json({ success: true, data: newAddress });
+          res.status(201).json({ success: true, data: savedOrder });
         } catch (error) {
           res.status(500).json({ success: false, message: error.message });
         }
@@ -54,17 +57,17 @@ exports.getAllAddresses = async (req, res) => {
 };
 
 // Get an address by ID
-exports.getAddressById = async (req, res) => {
-    try {
-        const address = await Address.findById(req.params.id);
-        if (!address) {
-            return res.status(404).json({ message: 'Address not found' });
-        }
-        res.status(200).json(address);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
+// exports.getAddressById = async (req, res) => {
+//     try {
+//         const address = await Address.findById(req.params.id);
+//         if (!address) {
+//             return res.status(404).json({ message: 'Address not found' });
+//         }
+//         res.status(200).json(address);
+//     } catch (error) {
+//         res.status(500).json({ message: error.message });
+//     }
+// };
 
 // Update an address by ID
 exports.updateAddress = async (req, res) => {
