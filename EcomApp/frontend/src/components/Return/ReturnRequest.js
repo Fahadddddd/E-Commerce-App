@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useContext, useState, useEffect } from 'react';
 import './ReturnRequest.css';
 import Header from '../Header/header';
 import Footer from '../Footer/Footer';
@@ -6,8 +7,8 @@ import Footer from '../Footer/Footer';
 const ReturnRequest = () => {
     const [orderNo, setorderNo] = useState('');
     const [phone, setPhone] = useState('');
-
-
+    const [responseMessage, setResponseMessage] = useState('');
+    const [loading, setLoading] = useState(false);
     
 
     const handleSubmit = async (event) => {
