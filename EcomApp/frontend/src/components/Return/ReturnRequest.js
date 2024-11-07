@@ -3,6 +3,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import './ReturnRequest.css';
 import Header from '../Header/header';
 import Footer from '../Footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const ReturnRequest = () => {
     const [orderNo, setorderNo] = useState('');
@@ -10,6 +11,7 @@ const ReturnRequest = () => {
     const [responseMessage, setResponseMessage] = useState('');
     const [loading, setLoading] = useState(false);
     
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -33,8 +35,8 @@ const ReturnRequest = () => {
           const result = await response.json();
     
           if (response.ok) {
-          alert("Return Initiated Successfully");
-        
+            alert("Return Initiated Successfully");
+            navigate('/');
          
         } else {
           alert(result.message);
