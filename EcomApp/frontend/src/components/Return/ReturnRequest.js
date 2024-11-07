@@ -58,7 +58,7 @@ const ReturnRequest = () => {
                 <h2>Product Return Request</h2>
                 <p>Enter your order number and Email or Phone to find your order</p>
                 <input type="text" placeholder="Order Number" value={orderNo} onChange={(e) => setorderNo(e.target.value)} />
-                <input type="tel" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                <input type="text" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
                 <button>Request Return</button>
                 <p className="upload-instructions">
                     Please upload the product images where the brand tag is clearly visible to avoid any rejection of your return request.
