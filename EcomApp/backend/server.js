@@ -168,7 +168,7 @@ const path = require("path");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
 
 // ---------------- MIDDLEWARE (FIRST) ----------------
 app.use(morgan("dev"));
@@ -228,9 +228,12 @@ app.get("*", (req, res) => {
 });
 
 // ---------------- DB + SERVER START (LAST) ----------------
+const PORT = process.env.PORT || 5000;
+
 mongoose.connect(process.env.MONGOD_URI)
   .then(() => {
     console.log("MongoDB connected");
+
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
@@ -239,3 +242,4 @@ mongoose.connect(process.env.MONGOD_URI)
     console.error("MongoDB error:", err);
     process.exit(1);
   });
+
